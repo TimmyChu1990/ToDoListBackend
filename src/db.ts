@@ -1,13 +1,21 @@
 import { Client } from 'pg';
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 // Connet to PostgreSQL database
 const client = new Client({
     user: 'postgres',
     password: 'example',
-    port: 2345
+    port: 5432,
+    host: 'localhost'
 });
 
-client.connect();
+async function establishConnection () {
+    await sleep(10000);
+    client.connect();
+}
+
+establishConnection();
 
 async function checkSheet () {
     try {
