@@ -7,7 +7,7 @@ const client = new Client({
     user: 'postgres',
     password: 'example',
     port: 5432,
-    host: 'localhost'
+    host: 'db'
 });
 
 async function establishConnection () {
